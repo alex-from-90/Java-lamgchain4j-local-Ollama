@@ -1,0 +1,19 @@
+services:
+  ollama-service:
+    build:
+      context: .
+      dockerfile: Dockerfile-ollama
+    container_name: my-ollama-container
+    ports:
+      - "11434:11434"
+    environment:
+      - OLLAMA_HOST=http://0.0.0.0:11434
+
+#  book-extract:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-app
+#    depends_on:
+#      - ollama-service
+#    ports:
+#      - "5038:5038"
